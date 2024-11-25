@@ -1,8 +1,6 @@
-from collections import defaultdict
-
 class TrieNode:
     def __init__(self):
-        self.children = defaultdict(TrieNode)
+        self.children = {}
         self.is_end_of_word = False
         self.data = []  # To store the count of occurrences
 
@@ -13,6 +11,8 @@ class Trie:
     def insert(self, key, row):
         node = self.root
         for char in key:
+            if char not in node.children:
+                node.children[char] = TrieNode()
             node = node.children[char]
         node.is_end_of_word = True
         node.data.append(row)
@@ -34,6 +34,6 @@ def trie_sort(data, sort_column):
     for row in data:
         trie.insert(row[sort_column], row)
 
-    # Recuperar os dados ordenados
+    # Retrieve the sorted data
     sorted_data = trie.sort()
     return [row for _, row in sorted_data]

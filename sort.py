@@ -52,7 +52,7 @@ def best_of_profillings(target_profile_function, count, *args):
 # heavy_lifting_result = best_of_profillings(radix_sort, 10, data, 3)
 # print(heavy_lifting_result)
 
-sorted = radix_sort(data, 3)
+sorted = trie_sort(data, 3)
 
 # # save the sorted data to a new CSV file
 with open('datasets/olist_geolocation_dataset_sorted.csv', 'w', newline='', encoding='utf-8') as csv_file:
@@ -60,7 +60,7 @@ with open('datasets/olist_geolocation_dataset_sorted.csv', 'w', newline='', enco
     writer.writerows(sorted)
 
 # Profile the main function
-# cProfile.run('trie_sort(data, 3)')
+cProfile.run('trie_sort(data, 3)')
 
 # cProfile.run('radix_sort(data, 3)')
 # cProfile.run('merge_sort(data, 3)')
