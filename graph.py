@@ -69,7 +69,7 @@ def plot_most_cited_city_by_state(data):
 
 if __name__ == "__main__":
     # Read the CSV file
-    data = read_csv('output/sorted_geolocation_dataset.csv')
+    data = read_csv('datasets/olist_geolocation_dataset_sorted.csv')
     
     # Plot the top cities
     plot_top_cities(data, top_n=10)  # Adjust top_n as needed
